@@ -1,0 +1,249 @@
+/*
+# Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Soft Cyan (Full Slider Bar): hsl(174, 77%, 80%)
+- Strong Cyan (Slider Backround): hsl(174, 86%, 45%)
+- Light Grayish Red (Discount Background): hsl(14, 92%, 95%)
+- Light Red (Discount Text): hsl(15, 100%, 70%)
+- Pale Blue (CTA Text): hsl(226, 100%, 87%)
+
+### Neutral
+
+- White (Pricing Component Background): hsl (0, 0%, 100%)
+- Very Pale Blue (Main Background): hsl(230, 100%, 99%)
+- Light Grayish Blue (Empty Slider Bar): hsl(224, 65%, 95%)
+- Light Grayish Blue (Toggle Background): hsl(223, 50%, 87%)
+- Grayish Blue (Text): hsl(225, 20%, 60%)
+- Dark Desaturated Blue (Text & CTA Background): hsl(227, 35%, 25%)
+
+## Typography
+
+### Body Copy
+
+- Font size (Introductory Paragraph): 15px
+
+### Font
+
+- Family: [Manrope](https://fonts.google.com/specimen/Manrope)
+- Weights: 600, 800
+
+*/
+@font-face {
+  font-family: "Manrope";
+  src: url("css/Manrope-VariableFont_wght.ttf") format("truetype");
+}
+
+body {
+  font-family: "Manrope";
+  background-color: #fafbff;
+  background: url(images/bg-pattern.svg);
+  background-repeat: no-repeat;
+}
+
+.main-title {
+  background-image: url(images/pattern-circles.svg), none;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: center center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.main-title h1 {
+  color: #293356;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.main-title h2 {
+  color: #858fad;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.card {
+  background-color: #fafbff;
+  padding: 50px 25px;
+  margin: 15px;
+  text-align: center;
+  color: #858fad;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 10px 10px #5555551e;
+          box-shadow: 0 10px 10px #5555551e;
+}
+
+.card .card-title {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+}
+
+.card .range {
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #a5f3eb), color-stop(50%, #EEE));
+  background: linear-gradient(90deg, #a5f3eb 50%, #EEE 50%);
+  outline: none;
+  position: relative;
+  -webkit-appearance: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.card .range::-webkit-slider-thumb {
+  width: 50px;
+  height: 50px;
+  background: url(images/icon-slider.svg), #10d5c2;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  -webkit-box-shadow: 0px 5px 20px #10d5c2;
+          box-shadow: 0px 5px 20px #10d5c2;
+  border-radius: 100%;
+  -webkit-appearance: none;
+}
+
+.card .range::-webkit-slider-thumb:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.card .pricing {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card .pricing .price {
+  font-size: 35px;
+  font-weight: bolder;
+  margin-right: 10px;
+  color: #293356;
+}
+
+.card .billing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 25px auto;
+  width: 80%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.card #toggle-button {
+  position: relative;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  margin: 0;
+  width: 35px;
+  height: 15px;
+  padding: 2px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #cdd7ee;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  display: flexbox;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.card #toggle-button::after {
+  content: "";
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  background-color: #fff;
+  position: absolute;
+  left: 2px;
+  right: auto;
+}
+
+.card #toggle-button:checked {
+  background-color: #10d5c2;
+}
+
+.card #toggle-button:checked::after {
+  content: '';
+  position: absolute;
+  right: 2px;
+  left: auto;
+}
+
+.card .yearly-billing {
+  background-color: #feece7;
+  display: inline-block;
+  color: #ff8c66;
+  width: 35px;
+  height: 15px;
+  padding: 2px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: bolder;
+}
+
+.card hr {
+  height: 1px;
+  margin-top: 30px;
+  background-color: #cdd7ee;
+  border: none;
+}
+
+.card ul {
+  list-style: none;
+  line-height: 2;
+}
+
+.card ul li .icon-check {
+  display: inline-block;
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+  background: url(images/icon-check.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.card button {
+  background-color: #293356;
+  color: #bdc4db;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+/*# sourceMappingURL=style.css.map */

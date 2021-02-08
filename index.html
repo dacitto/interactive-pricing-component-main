@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive pricing component</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-title">
+  <h1>
+    Simple, traffic-based pricing
+  </h1>
+  <h2>
+    Sign-up for our 30-day trail. <br/>
+    No credit card required.
+  </h2>
+</div>
+<main class="card">
+  <h2 class="card-title">100K pageviews</h2>
+  <input type="range" class="range" id='range' min="0" max='32' value="16.00" step="1" >
+
+ <div class="pricing">
+<span class="price" id="price"></span>
+<span class="month"> / month</span></div>
+
+ <div>
+   <div class="billing">
+
+     Monthly Billing
+     <input type="checkbox" id="toggle-button"/>
+     
+    </span>
+    Yearly Billing
+    <span class="yearly-billing">-25%</span>
+  </div>
+<hr>
+<ul >
+  <li><span class="icon-check"></span> Unlimited websites</li>
+  <li><span class="icon-check"></span> 100% data ownership</li>
+  <li><span class="icon-check"></span> Email reports</li>
+</ul>
+<button>Start my trail</button>
+ </div>
+</main>
+
+<script >
+let range = document.getElementById("range");
+let price = document.getElementById("price");
+price.innerHTML = '$'+range.value+'.00';
+range.oninput = function(){
+  price.innerHTML = '$'+this.value+'.00';
+range.style.background = 'linear-gradient(90deg,hsl(174, 77%, 80%) '+(this.value*100)/32+'%, #EEE '+(this.value*100)/32+'%)'; 
+};
+
+</script>
+</body>
+
+</html>
