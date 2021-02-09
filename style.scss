@@ -45,9 +45,10 @@ The designs were created to the following widths:
   }
 body{
 font-family: "Manrope";
-background-color: hsl(230, 100%, 99%);
 background: url(images/bg-pattern.svg);
+background-color: hsl(230, 100%, 99%);
 background-repeat: no-repeat;
+//background-position: 50% 0%;
 }
 
 .main-title{
@@ -135,7 +136,8 @@ background-repeat: no-repeat;
         width: 100%;
         font-weight: bold;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 10px;
         
     }
     #toggle-button{
@@ -233,7 +235,12 @@ background-repeat: no-repeat;
     }
 }
 /*  - Desktop: 1440px *****************************************/
-@media (min-width: 1200px) {
+@media (min-width: 960px) {
+    body{
+
+        background-size: contain;
+        
+        }
     .main-title{
         background-image: url(images/pattern-circles.svg), none;
         text-align: center;
@@ -259,6 +266,7 @@ background-repeat: no-repeat;
         margin: 15px auto;
         text-align: center;
         width: 40%;
+        max-width: 500px;
         color: hsl(225, 20%, 60%);
         border-radius: 15px;
         box-shadow: 0 10px 10px #5555551e;
@@ -375,7 +383,7 @@ background-repeat: no-repeat;
         .yearly-billing{
             background-color: hsl(14, 92%, 95%);
             color: hsl(15, 100%, 70%);
-            width: auto;
+            width: fit-content;
             height: 15px;
             padding: 4px;
             border-radius: 15px;
