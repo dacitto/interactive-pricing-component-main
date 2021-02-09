@@ -21,8 +21,8 @@
   </h2>
 </div>
 <main class="card">
-  <h2 class="card-title">100K pageviews</h2>
-  <input type="range" class="range" id='range' min="0" max='32' value="16.00" step="1" >
+  <h2 class="card-title"><span id="pagesNumber"></span> pageviews</h2>
+  <input type="range" class="range" id='range' min="0" max='4' value="2" step="1" >
 
  <div class="pricing">
 <span class="price" id="price"></span>
@@ -32,7 +32,7 @@
    <div class="billing">
 
      Monthly Billing
-     <input type="checkbox" id="toggle-button"/>
+     <input type="checkbox" id="toggle-button" onclick="discountClick(this)"/>
      
     </span>
     Yearly Billing
@@ -49,12 +49,55 @@
 </main>
 
 <script >
+let pageviews = function (price) {
+  switch (price) {
+      case 8:
+        return "10K";  
+      break;
+      case 12:
+      return "50K"  ; 
+      break;
+      case 16: 
+      return "100K" ;  
+      break;
+      case 24: 
+      return "500K"  ; 
+      break;
+      case 36:   
+      return "1M";
+      break;
+  }
+}
+
+
+
+let pricesArray =[8,12,16,24,36];
+
 let range = document.getElementById("range");
 let price = document.getElementById("price");
-price.innerHTML = '$'+range.value+'.00';
+let pagesNumber = document.getElementById("pagesNumber");
+let discount = document.getElementById("toggle-button");
+pagesNumber.innerHTML =  pageviews(pricesArray[range.value]);           
+price.innerHTML = '$'+pricesArray[range.value]+'.00';
+//pagesNumber.innerHTML = range.value;
+range.style.background = 'linear-gradient(90deg,hsl(174, 77%, 80%) '+(range.value*100)/4+'%, #EEE '+(range.value*100)/4+'%)'; 
 range.oninput = function(){
-  price.innerHTML = '$'+this.value+'.00';
-range.style.background = 'linear-gradient(90deg,hsl(174, 77%, 80%) '+(this.value*100)/32+'%, #EEE '+(this.value*100)/32+'%)'; 
+  range.style.background = 'linear-gradient(90deg,hsl(174, 77%, 80%) '+(this.value*100)/4+'%, #EEE '+(this.value*100)/4+'%)'; 
+  pagesNumber.innerHTML =  pageviews(pricesArray[this.value]);           
+  if (discount.checked){
+    price.innerHTML = '$'+pricesArray[this.value]*0.75+'.00';
+  }else{
+    price.innerHTML = '$'+pricesArray[this.value]+'.00';
+  }
+};
+function discountClick(e){
+  if (e.checked){
+    console.log(e.checked);
+    price.innerHTML = '$'+pricesArray[range.value]*0.75+'.00';
+  }else{
+
+    price.innerHTML = '$'+pricesArray[range.value]+'.00';
+  }
 };
 
 </script>

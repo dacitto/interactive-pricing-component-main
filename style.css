@@ -57,8 +57,7 @@ body {
   background-repeat: no-repeat;
   background-size: 40%;
   background-position: center center;
-  padding-top: 100px;
-  padding-bottom: 50px;
+  padding: 40px 10px;
 }
 
 .main-title h1 {
@@ -82,6 +81,7 @@ body {
   border-radius: 15px;
   -webkit-box-shadow: 0 10px 10px #5555551e;
           box-shadow: 0 10px 10px #5555551e;
+  overflow: hidden;
 }
 
 .card .card-title {
@@ -148,7 +148,9 @@ body {
   display: -ms-flexbox;
   display: flex;
   margin: 25px auto;
-  width: 80%;
+  font-size: 14px;
+  width: 100%;
+  font-weight: bold;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -218,6 +220,8 @@ body {
 .card hr {
   height: 1px;
   margin-top: 30px;
+  margin-left: -500px;
+  width: 1000px;
   background-color: #cdd7ee;
   border: none;
 }
@@ -225,6 +229,13 @@ body {
 .card ul {
   list-style: none;
   line-height: 2;
+  position: relative;
+}
+
+.card ul li {
+  padding: 0;
+  margin: 0;
+  margin-left: -60px;
 }
 
 .card ul li .icon-check {
@@ -244,6 +255,10 @@ body {
   border: none;
   border-radius: 20px;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: normal;
+}
+
+.card button:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
